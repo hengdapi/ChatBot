@@ -4,7 +4,7 @@ import streamlit as st
 st.title("AI Chatbot")
 
 client = OpenAI(base_url='https://openrouter.ai/api/v1',
-                api_key=st.secret["api_key"])
+                api_key=st.secrets["api_key"])
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "qwen/qwen3-235b-a22b:free"
