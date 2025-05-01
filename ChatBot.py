@@ -3,10 +3,10 @@ import streamlit as st
 
 st.title("AI Chatbot")
 
-client = OpenAI(base_url='https://api.siliconflow.cn/v1',api_key="sk-ibfllpymvyvlamgkdsetclbvckvhhmqsdseqezflkaovvepr")
+client = OpenAI(base_url='https://openrouter.ai/api/v1',api_key="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")
 
 if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+    st.session_state["openai_model"] = "qwen/qwen3-235b-a22b:free"
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
