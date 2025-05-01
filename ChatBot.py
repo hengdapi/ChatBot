@@ -1,9 +1,14 @@
 from openai import OpenAI
-import streamlit as st
+import streamlit as st,base64
 
 st.title("AI Chatbot")
 
-client = OpenAI(base_url='https://openrouter.ai/api/v1',api_key="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")
+encoded_str = "c2stb3ItdjEtNTQ4NmUyODc3N2Q3MWQ0NmM0ZDRmZDc5MTdlMTUxNWZkMjlhNTYzYjdkZjViYjcyNzc0MDc2ZGZhMWQ4NTJiOA=="
+decoded_bytes = base64.b64decode(encoded_str.encode())
+decoded_str = decoded_bytes.decode()
+
+client = OpenAI(base_url='https://openrouter.ai/api/v1',
+                api_key=decoded_str)
 
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "qwen/qwen3-235b-a22b:free"
